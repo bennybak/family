@@ -1,0 +1,11 @@
+<h1>Albums List</h1>
+<ul>
+    {% for album in albums %}
+    <li>{{ album.name }} by {{ album.artist.first_name }} {{ album.artist.last_name }} - {{ album.release_date }} ({{ album.num_stars }} stars)</li>
+    {% empty %}
+    <li>No albums found.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_album' %}">Add Album</a>
+
+<p><a href="{% url 'index' %}">Back to Home</a></p>

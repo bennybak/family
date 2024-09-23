@@ -1,0 +1,11 @@
+<h1>Musicians List</h1>
+<ul>
+    {% for musician in musicians %}
+    <li>{{ musician.first_name }} {{ musician.last_name }} - {{ musician.instrument }}</li>
+    {% empty %}
+    <li>No musicians found.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_musician' %}">Add Musician</a>
+
+<p><a href="{% url 'index' %}">Back to Home</a></p>
