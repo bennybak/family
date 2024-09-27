@@ -9,5 +9,10 @@ def login_view(request):
     user = authenticate(username=username, password=password)
 
     if user is not None:
-        return JsonResponse({'message': 'Login successful'})
+        return JsonResponse({
+            'message': 'Login successful',
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'username': user.username,
+        })
     return JsonResponse({'error': 'Invalid credentials'}, status=400)

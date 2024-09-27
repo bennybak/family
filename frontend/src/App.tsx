@@ -5,14 +5,12 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 // import './App.css';
 import Login from './components/Login';
 import Home from './components/Home'; // Your Home component
-
+import { AuthProvider, useAuth } from './AuthContext'; // Adjust the path as needed
 
 const App: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const { user } = useAuth(); // Get user from context
 
-  const handleLoginSuccess = () => {
-    setIsAuthenticated(true);
-  };
+//   const { isAuthenticated } = useAuth(); // Get authentication state from context
 
   return (
     <Router>
@@ -20,16 +18,16 @@ const App: React.FC = () => {
         <Route
           path="/"
           element={
-            isAuthenticated ? (
+            user ? (
               <Navigate to="/home" />
             ) : (
-              <Login onLoginSuccess={handleLoginSuccess} />
+              <Login />
             )
           }
         />
         <Route
           path="/home"
-          element={isAuthenticated ? <Home /> : <Navigate to="/" />}
+          element={user ? <Home /> : <Navigate to="/" />}
         />
       </Routes>
     </Router>

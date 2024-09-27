@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { useAuth } from '../AuthContext'; // Adjust the path as needed
 
-interface LoginProps {
-  onLoginSuccess: () => void;
-}
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
+const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { login } = useAuth(); // Get the login function from context
+  const navigate = useNavigate(); // Initialize useNavigate
+
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,8 +23,16 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
     });
 
     if (response.ok) {
+      const userData = await response.json();
       console.log('Login successful');
-      onLoginSuccess(); // Redirect to home page
+      login({
+          username: userData.username,
+          firstName: userData.first_name,
+          lastName: userData.last_name,
+      });
+
+      // Redirect to home page after successful login
+      navigate('/home');
     } else {
       console.log('Login failed');
     }
