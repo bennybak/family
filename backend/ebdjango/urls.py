@@ -17,11 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from playground import views
+from .views import login_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),  # Index/Home page
 
+    #API
+    path('api/login/', login_view, name='login'),
 
     # Musician URLs
     path('musician/add/', views.add_musician, name='add_musician'),
