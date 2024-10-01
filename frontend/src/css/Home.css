@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  margin: 0;
+}
+
+nav {
+  position: relative;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  margin: 0 10px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  display: block;
+}
+
+ul li a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.burger .line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  ul {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    display: none;
+  }
+
+  ul.active {
+    display: flex;
+  }
+
+  ul li {
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+main {
+  padding: 20px;
+  flex: 1; /* Makes the main section take up the remaining height */
+}
+
+/* Footer-like styling for About Us, Services, and Contact Us sections */
+.footer-sections {
+  display: flex;
+  justify-content: space-around; /* Spreads the sections evenly */
+  background-color: #f8f8f8; /* Light background for better visibility */
+  padding: 20px; /* Adds padding to the footer */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Each section takes a percentage of the width */
+.footer-sections section {
+  width: 30%; /* Each section will take up 30% of the footer's width */
+}
+
+.footer-sections h2 {
+  margin: 0;
+}
+
+.footer-sections p {
+  margin: 0;
+}
+
+/* Body and html to make sure the page height covers full screen */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

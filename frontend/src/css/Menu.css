@@ -1,35 +1,66 @@
-.burger {
-  cursor: pointer;
-}
-
 nav {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 50px; /* Adjust based on your layout */
-  right: 0;
-  background: white; /* Or any background color */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-nav.open {
-  display: flex;
-}
-
-nav.closed {
-  display: none;
-}
-
-nav ul {
+ul {
   list-style: none;
+  display: flex;
+  margin: 0;
   padding: 0;
 }
 
-nav li {
-  padding: 10px 20px;
+ul li {
+  margin: 0 10px;
 }
 
-nav li a {
+ul li a {
   text-decoration: none;
-  color: black; /* Adjust based on your design */
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  display: block;
+}
+
+ul li a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.burger .line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  ul {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    display: none;
+  }
+
+  ul.active {
+    display: flex;
+  }
+
+  ul li {
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .burger {
+    display: flex;
+  }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import '../css/Menu.css'; // Import the CSS for the menu styles
 
-const BurgerMenu: React.FC = () => {
+const Menu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -9,19 +9,23 @@ const BurgerMenu: React.FC = () => {
   };
 
   return (
-    <div>
-      <div className="burger" onClick={toggleMenu}>
-        {isOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
+    <nav>
+      <div className="logo">
+        <h1>Family Chores</h1>
       </div>
-      <nav className={isOpen ? 'open' : 'closed'}>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/login">Login</a></li>
-        </ul>
-      </nav>
-    </div>
+      <div className="burger" onClick={toggleMenu}>
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+      </div>
+      <ul className={isOpen ? 'nav-links active' : 'nav-links'}>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   );
 };
 
-export default BurgerMenu;
+export default Menu;
