@@ -1,5 +1,6 @@
 nav {
   position: relative;
+  z-index: 1000; /* Ensure the menu is above the content */
 }
 
 ul {
@@ -7,23 +8,37 @@ ul {
   display: flex;
   margin: 0;
   padding: 0;
+  justify-content: center; /* Center all menu items horizontally */
 }
 
 ul li {
   margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Ensures all items inside li, including button, are centered */
 }
 
-ul li a {
+/* Common styles for both anchor and button elements */
+ul li a,
+ul li button {
   text-decoration: none;
   color: white;
   font-weight: bold;
   padding: 10px;
   display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px; /* Ensure same font size for both */
+  font-family: inherit; /* Inherit font family from parent */
+  text-align: center; /* Ensures button text is centered */
 }
 
-ul li a:hover {
+ul li a:hover,
+ul li button:hover {
   background-color: #575757;
   border-radius: 5px;
+  text-decoration: none; /* Make sure no underline appears */
 }
 
 .burger {
@@ -49,6 +64,7 @@ ul li a:hover {
     background-color: #333;
     width: 100%;
     display: none;
+    z-index: 1000; /* Ensure menu stays above content */
   }
 
   ul.active {
@@ -63,4 +79,14 @@ ul li a:hover {
   .burger {
     display: flex;
   }
+}
+
+main {
+  padding: 20px;
+  z-index: 1; /* Ensure content stays behind the menu */
+  position: relative;
+}
+
+section {
+  margin: 50px 0;
 }

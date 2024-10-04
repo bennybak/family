@@ -6,6 +6,9 @@
 
 body {
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure body is at least the height of the viewport */
 }
 
 header {
@@ -62,7 +65,7 @@ ul li a:hover {
   margin: 4px;
 }
 
-/* Responsive Design */
+/* Ensuring burger menu visibility */
 @media (max-width: 768px) {
   ul {
     flex-direction: column;
@@ -84,42 +87,46 @@ ul li a:hover {
   }
 
   .burger {
-    display: flex;
+    display: flex; /* Ensure the burger menu is visible on small screens */
   }
 }
 
 main {
   padding: 20px;
-  flex: 1; /* Makes the main section take up the remaining height */
+  flex: 1; /* Makes the main content expand and take up the available height */
 }
 
-/* Footer-like styling for About Us, Services, and Contact Us sections */
 .footer-sections {
   display: flex;
-  justify-content: space-around; /* Spreads the sections evenly */
+  justify-content: space-around; /* Spread footer sections evenly */
   background-color: #f8f8f8; /* Light background for better visibility */
-  padding: 20px; /* Adds padding to the footer */
-  position: absolute;
+  padding: 20px;
+  position: relative;
   bottom: 0;
   width: 100%;
 }
 
-/* Each section takes a percentage of the width */
 .footer-sections section {
   width: 30%; /* Each section will take up 30% of the footer's width */
 }
 
-.footer-sections h2 {
+.footer-sections h2, .footer-sections p {
   margin: 0;
 }
 
-.footer-sections p {
-  margin: 0;
+/* Responsive design for the footer sections */
+@media (max-width: 768px) {
+  .footer-sections {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-sections section {
+    width: 100%;
+    margin: 10px 0;
+  }
 }
 
-/* Body and html to make sure the page height covers full screen */
 body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  height: 100%; /* Ensure the body and html take up full height */
 }
